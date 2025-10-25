@@ -4,18 +4,19 @@ let asistencia=[
 
 ];
 
-mostrarResumen=function(){
-    
+mostrarResumen = function () {
+
 }
+
 revisarAsistencia=function(){
+    let totalAusentes=[];
+    let totalPresentes=[]
     for(let i=0;i<asistencia.length;i++){
         let presente=asistencia[i].lista
         if(presente.lista==="A"){
-            let totalPresentes;
-            totalPresentes+=presente
+            totalPresentes+=1
         } else if (presente.lista==="F"){
-            let totalAusentes;
-            totalAusentes
+            totalAusentes+=1
         }
     }
 }
