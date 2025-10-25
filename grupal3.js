@@ -1,8 +1,7 @@
  resumen=function(){
     
  }
- function actualizarEstudiantes() {
+ function calcularTotalEstudiantes() {
     let totalEstudiantes=estudiantes.length;
-    mostrarTexto("totalProductos",totalEstudiantes);
-
+    mostrarTexto("totalEstudiantes",totalEstudiantes);
   }
