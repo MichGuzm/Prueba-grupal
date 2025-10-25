@@ -35,6 +35,95 @@ function limpiarErrores() {
 }
 /*termina parte 1*/
 
+/* PARTE 2: MARCAR ASISTENCIA DEL DIA*/
+// Marcar asistencia
+marcarAsistencia=function() {
+  limpiarErrores();
+
+  const id = document.getElementById("id-estudiante").value.trim();
+  const estado = document.getElementById("estado").value;
+
+  let valido = true;
+
+  if (id === "") {
+    mostrarError("error-id-estudiante", "El ID es obligatorio.");
+    valido = false;
+  }
+
+  const estudiante = estudiantes.find(e => e.id === id);
+  if (!estudiante) {
+    mostrarError("error-id-estudiante", "El estudiante no existe.");
+    valido = false;
+  }
+
+  if (estado === "") {
+    mostrarError("error-estado", "Debe seleccionar un estado.");
+    valido = false;
+  }
+  let asistencia = window.asistencia || [];
+
+  if (valido) {
+    const existente = asistencia.find(a => a.id === id);
+    if (existente) {
+      existente.estado = estado;
+    } else {
+      asistencia.push({ id, nombre: estudiante.nombre, estado });
+    }
+    actualizarTablaAsistencia();
+  }
+}
+
+// Mostrar tabla de asistencia
+function actualizarTablaAsistencia() {
+  const tbody = document.querySelector("#tabla-asistencia tbody");
+  tbody.innerHTML = "";
+
+  for (let registro of asistencia) {
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+      <td>${registro.id}</td>
+      <td>${registro.nombre}</td>
+      <td>${registro.estado}</td>
+    `;
+    tbody.appendChild(fila);
+  }
+}
+
+// Generar resumen del día
+function generarResumen() {
+  const total = asistencia.length;
+  const presentes = asistencia.filter(a => a.estado === "Presente").length;
+  const ausentes = asistencia.filter(a => a.estado === "Ausente").length;
+
+  const resumen = `
+    Curso: ${curso}
+    Docente: ${docente}
+    Total registrados: ${total}
+    Presentes: ${presentes}
+    Ausentes: ${ausentes}
+  `;
+
+  document.getElementById("resumen-dia").innerText = resumen;
+}
+// Utilitarios
+function mostrarError(id, mensaje) {
+  document.getElementById(id).innerText = mensaje;
+}
+
+function limpiarErrores() {
+  const errores = document.querySelectorAll(".error");
+  errores.forEach(e => e.innerText = "");
+}
+
+
+
+
+
+/* final parte 2 */
+
+
+
+
 
 
 
@@ -139,5 +228,4 @@ document.addEventListener("DOMContentLoaded", mostrarEstudiantes);
 
 
 
-//Mostrar errores
 

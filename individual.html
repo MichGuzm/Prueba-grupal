@@ -53,64 +53,51 @@
             </table>
         </div>
 
-         <h2>Datos del Curso</h2>
 
-  <label for="curso">Nombre del curso:</label>
-  <input type="text" id="curso">
-  <div id="error-curso" class="error"></div>
 
-  <label for="docente">Nombre del docente:</label>
-  <input type="text" id="docente">
-  <div id="error-docente" class="error"></div>
+        <h2>Marcar Asistencia</h2>
 
-  <button onclick="guardarCurso()">Guardar curso</button>
-  <div id="mensaje-curso" class="mensaje"></div>
+        <label for="id-estudiante">ID del estudiante:</label>
+        <input type="text" id="id-estudiante">
+        <div id="error-id-estudiante" class="error"></div>
 
-  <hr>
+        <label for="estado">Estado:</label>
+        <select id="estado">
+            <option value="">Seleccionar</option>
+            <option value="Presente">Presente</option>
+            <option value="Ausente">Ausente</option>
+        </select>
+        <div id="error-estado" class="error"></div>
 
-  <h2>Marcar Asistencia</h2>
-
-  <label for="id-estudiante">ID del estudiante:</label>
-  <input type="text" id="id-estudiante">
-  <div id="error-id-estudiante" class="error"></div>
-
-  <label for="estado">Estado:</label>
-  <select id="estado">
-    <option value="">Seleccionar</option>
-    <option value="Presente">Presente</option>
-    <option value="Ausente">Ausente</option>
-  </select>
-  <div id="error-estado" class="error"></div>
-
-  <button onclick="marcarAsistencia()">Marcar asistencia</button>
-
-  <div class="section">
-    <h3>Lista de Asistencia</h3>
-    <table id="tabla-asistencia">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Estado</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
-
-  <hr>
-
-  <h2>Resumen del Día</h2>
-  <button onclick="generarResumen()">Generar resumen del día</button>
-  <div id="resumen-dia" class="mensaje">
+        <button onclick="marcarAsistencia();">Marcar asistencia</button>
 
         <div class="section">
-            <h3>Eliminar estudiante</h3>
-            <label for="id-eliminar">ID a eliminar:</label>
-            <input type="text" id="id-eliminar">
-            <div id="error-eliminar" class="error"></div>
-            <button onclick="eliminarEstudiante()">Eliminar estudiante</button>
+            <h3>Lista de Asistencia</h3>
+            <table id="tabla-asistencia">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
+
+        <hr>
+
+        <h2>Resumen del Día</h2>
+        <button onclick="generarResumen()">Generar resumen del día</button>
+        <div id="resumen-dia" class="mensaje">
+
+            <div class="section">
+                <h3>Eliminar estudiante</h3>
+                <label for="id-eliminar">ID a eliminar:</label>
+                <input type="text" id="id-eliminar">
+                <div id="error-eliminar" class="error"></div>
+                <button onclick="eliminarEstudiante()">Eliminar estudiante</button>
+            </div>
 
 
     </body>
