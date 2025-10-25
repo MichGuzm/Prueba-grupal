@@ -4,6 +4,9 @@ let asistencia=[
 
 ];
 
+mostrarResumen=function(){
+    
+}
 revisarAsistencia=function(){
     for(let i=0;i<asistencia.length;i++){
         let presente=asistencia[i].lista
