@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<htmal>
+
+    <head>
+        <script src="carla.js"></script>
+        <script src="utilitarios.js"></script>
+        <link rel="stylesheet" href="individual.css">
+        <title>Examen Individual</title>
+    </head>
+
+
+    <body>
+
+        <h2>FORMULARIO DE REGISTRO</h2>
+
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre">
+        <div id="error-nombre" class="error"></div>
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="text" id="correo">
+        <div id="error-correo" class="error"></div>
+
+        <label for="id">ID del estudiante:</label>
+        <input type="text" id="id">
+        <div id="error-id" class="error"></div>
+
+        <button onclick="guardarEstudiante()">Guardar estudiante</button>
+
+        <div class="section">
+            <h3>Lista de estudiantes</h3>
+            <table id="tabla-estudiantes">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Eliminar estudiante</h3>
+            <label for="id-eliminar">ID a eliminar:</label>
+            <input type="text" id="id-eliminar">
+            <div id="error-eliminar" class="error"></div>
+            <button onclick="eliminarEstudiante()">Eliminar estudiante</button>
+        </div>
+
+        <div class="section">
+            <h3>Registro Asistencia</h3>
+            <input type="text" id="id-asistencia">
+            <div id="error-asistencia" class="error"></div>
+            <input type="checkbox"  value="Asistencia" onclick="asistencia();"/>
+            <input type="checkbox" value="Falta" onclick="falta();"/>
+        </div>
+        <div class="section">
+            <h3>Asistencia</h3>
+            <table id="tabla-asistencia">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Asistencia</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </body>
+
+    </html>
+
+
+</htmal>
