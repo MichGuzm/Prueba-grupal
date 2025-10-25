@@ -1,3 +1,0 @@
- resumen=function(){
-    
- }

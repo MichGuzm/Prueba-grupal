@@ -1,44 +1,3 @@
-// REQUERIMIENTOS
-//  PARTE 1: DATOS DEL CURSO Y DOCENTE
-
-function guardarCurso() {
-  limpiarErrores();
-
-  const curso = document.getElementById("curso").value.trim();
-  const docente = document.getElementById("docente").value.trim();
-
-  let valido = true;
-
-  if (curso === "") {
-    mostrarError("error-curso", "El nombre del curso es obligatorio.");
-    valido = false;
-  }
-
-  if (docente === "") {
-    mostrarError("error-docente", "El nombre del docente es obligatorio.");
-    valido = false;
-  }
-
-  if (valido) {
-    const mensaje = `Asistencia del curso ${curso}, pasada por ${docente}.`;
-    document.getElementById("mensaje-curso").innerText = mensaje;
-  }
-}
-
-function mostrarError(id, mensaje) {
-  document.getElementById(id).innerText = mensaje;
-}
-
-function limpiarErrores() {
-  const errores = document.querySelectorAll(".error");
-  errores.forEach(e => e.innerText = "");
-}
-/*termina parte 1*/
-
-
-
-
-// Lista de estudiantes
 let estudiantes = [];
 
 // Función para validar nombre
@@ -137,7 +96,26 @@ function eliminarEstudiante() {
 // Inicializar la tabla al cargar la página
 document.addEventListener("DOMContentLoaded", mostrarEstudiantes);
 
+asistencia=function(){
+    let idEstudiante=recuperarTexto("id-asistencia");
+    let existe = estudiantes.findIndex(e => e.id === id);
 
+    let hayError=false;
 
-//Mostrar errores
+    if(idEstudiante==""){
+        mostrarTexto("error-asistencia","NO PUEDE ESTAR VACIO");
+        hayError=true;
+    }
+    
+}
 
+function mostrarAsistencia() {
+  const tabla = document.querySelector("#tabla-asistencia tbody");
+  tabla.innerHTML = "";
+
+  estudiantes.forEach(est => {
+    const fila = document.createElement("tr");
+    fila.innerHTML = `<td>${est.id}</td><td>${est.nombre}</td><td>${est.correo}</td>`;
+    tabla.appendChild(fila);
+  });
+}
