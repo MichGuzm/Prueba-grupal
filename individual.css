@@ -1,0 +1,56 @@
+
+body {
+    background-image:url("imagen.jpg");    
+  font-family: Arial, sans-serif;
+  margin: 300px;
+  background-color: #f9f9f9;
+  color: #333;
+
+  
+}
+input {
+  display: block;
+  margin-bottom: 8px;
+  padding: 8px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+button {
+  padding: 8px 16px;
+  margin-top: 10px;
+  background-color: #00cc66;
+  color: white;
+  border: none;
+  border-radius: 4px;   
+  cursor: pointer;
+}
+button:hover {
+  background-color: #005fa3;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+th {
+  background-color: #e0e0e0;
+}
+
+.error{
+    color: rgb(145, 4, 4);
+    font-size: 0.9em;
+}
+.section{
+    margin-top: 20px;
+}
+h2, h3 {
+  color: #a000cc;
+}
+
