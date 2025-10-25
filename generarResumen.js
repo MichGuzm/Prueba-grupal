@@ -19,7 +19,13 @@ revisarAsistencia=function(){
             totalAusentes+=1
         }
     }
+    console.log(totalAusentes);
+    console.log(totalPresentes);
+
 }
+
+
+
 
 
 
