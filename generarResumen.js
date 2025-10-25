@@ -1,6 +1,6 @@
-let asistencia=[
-    {estudiante:"Juan Perez",lista:"A" },
-    {estudiante:"Juan Perez",lista:"F" }
+let asistencia = [
+    { estudiante: "Juan Perez", lista: "A" },
+    { estudiante: "Juan Perez", lista: "F" }
 
 ];
 
@@ -8,15 +8,15 @@ mostrarResumen = function () {
 
 }
 
-revisarAsistencia=function(){
-    let totalAusentes=[];
-    let totalPresentes=[]
-    for(let i=0;i<asistencia.length;i++){
-        let presente=asistencia[i].lista
-        if(presente.lista==="A"){
-            totalPresentes+=1
-        } else if (presente.lista==="F"){
-            totalAusentes+=1
+revisarAsistencia = function () {
+    let totalAusentes = [];
+    let totalPresentes = []
+    for (let i = 0; i < asistencia.length; i++) {
+        let presente = asistencia[i].lista
+        if (presente.lista === "A") {
+            totalPresentes += 1
+        } else if (presente.lista === "F") {
+            totalAusentes += 1
         }
     }
     console.log(totalAusentes);
@@ -26,26 +26,31 @@ revisarAsistencia=function(){
 
 function mostrarResumen() {
 
-  let nombreCurso = "Curso de JavaScript";
-  let nombreDocente = "Juan Pérez";
-  let totalEstudiantes = estudiantes.length;
-  let presentes = 0;
-  let ausentes = 0;
+    let cursoEstudiantes = document.getElementById("cursoEstudiantes").value;
+    let docente = document.getElementById("txtDocente").value;
+    let asistenciaEstudiantes = document.getElementsByClassName("txtAsistencia");
 
-  // Contar presentes y ausentes
-  estudiantes.forEach(est => {
-    // Aquí debes agregar la lógica para contar presentes y ausentes
-    // Por ahora, asumimos que todos están presentes
-    presentes++;
-  });
+    let totalAsistencia = asistenciaEstudiantes.length;
+    let presentes = 0;
 
-  let resumen = `Nombre del curso: ${nombreCurso}<br>
-                 Nombre del docente: ${nombreDocente}<br>
-                 Total de estudiantes registrados: ${totalEstudiantes}<br>
-                 Presentes: ${presentes}<br>
-                 Ausentes: ${ausentes}`;
+ for (let i = 0; i < asistenciaEstudiantes.length; i++) {
+    if (asistenciaEstudiantes[i].lista) {
+        presentes++;
+    }
+}
+let ausentes = totalAsistencia - presentes;
 
-  document.getElementById("resumen").innerHTML = resumen;
+let resumen = `
+        <p><b>Curso:</b> ${cursoEstudiantes}</p>
+        <p><b>Docente:</b> ${docente}</p>
+        <p><b>Total de estudiantes:</b> ${totalAsistencia}</p>
+        <p><b>Presentes:</b> ${presentes}</p>
+        <p><b>Ausentes:</b> ${ausentes}</p>
+      `;
+
+document.getElementById("resumen-dia").innerHTML = resumen;
+
+
 }
 
 
