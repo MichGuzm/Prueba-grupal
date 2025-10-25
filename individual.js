@@ -96,3 +96,5 @@ function eliminarEstudiante() {
 }
 // Inicializar la tabla al cargar la página
 document.addEventListener("DOMContentLoaded", mostrarEstudiantes);
+
+
